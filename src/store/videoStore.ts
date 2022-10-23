@@ -5,6 +5,9 @@ export const videoStore = defineStore("videoStore", {
     state: () =>
         ({
             loading: false as boolean,
-            videos: [] as Video[]
+            loadingChannel: false as boolean,
+            showDialog: false,
+            videos: [] as Video[],
+            channelVideos: [] as Video[]
         }),
 });
