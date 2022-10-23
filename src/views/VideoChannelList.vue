@@ -1,7 +1,7 @@
 <template>
   <v-card :loading="loading">
     <v-card-title>
-      LISTA DE VIDOS DEL CANAL
+      VIDEOS DEL CANAL
       <v-spacer/>
       <v-btn
         color="green"
@@ -51,7 +51,7 @@ export default class VideoChannelList extends Vue {
 
   get videos(): Video[] {
     return this.videoStore.channelVideos.filter((item:Video) => {
-      return item.kind !== 'channel';
+      return item.kind === 'video';
     });
   }
 
