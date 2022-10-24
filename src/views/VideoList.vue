@@ -8,7 +8,7 @@
     >
       <v-row>
         <v-col cols="12" lg="4" md="4" sm="12">
-          <v-card class="mx-auto text-center" outlined>
+          <v-card class="mx-auto text-center" outlined @click="viewDetail(video)">
             <v-img
                 :lazy-src="video.imageThumbnail"
                 :src="video.image"
@@ -64,10 +64,14 @@ export default class VideoList extends Vue {
   }
 
   @Emit()
-  listChannelVideos(kind:string, id:string){
+  listChannelVideos(kind: string, id: string) {
     console.log("emit", kind, id);
   }
 
+  viewDetail(video: Video) {
+    if (video.kind === 'video')
+      this.$router.push({name: 'detail', params: {id: video.id}})
+  }
 }
 </script>
 

@@ -17,7 +17,12 @@ const routes: Array<RouteConfig> = [
         path: '/',
         name: 'home',
         component: () => import('../views/HomeView.vue')
-    }
+    },
+    {
+        path: '/detail/:id',
+        name: 'detail',
+        component: () => import('../views/VideoDetail.vue'),
+    },
 ]
 
 const router = new VueRouter({
