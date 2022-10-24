@@ -37,6 +37,7 @@
     <v-dialog v-model="showDialog" persistent width="800px">
       <video-channel-list
           :id="channelIdSelect"
+          :kind="kindSelect"
       />
     </v-dialog>
   </div>
@@ -60,6 +61,7 @@ export default class HomeView extends Vue {
   private videoService = VideoService.getInstance();
   private query = '';
   private channelIdSelect = '';
+  private kindSelect = '';
 
   get loading(): boolean {
     return this.videoStore.loading;
@@ -78,12 +80,13 @@ export default class HomeView extends Vue {
   }
 
   listChannelVideos(kind: string, id: string) {
+    this.channelIdSelect = id;
+    this.kindSelect = kind;
+    this.videoStore.showDialog = true;
     if (kind === 'channel') {
-      this.channelIdSelect = id;
-      this.videoStore.showDialog = true;
       this.videoService.channelVideos(id);
     } else {
-      console.log(kind, id);
+      this.videoService.playlistVideos(id);
     }
   }
 }

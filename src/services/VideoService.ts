@@ -46,4 +46,16 @@ export class VideoService {
             },
         })
     }
+
+    public async playlistVideos(id: string) {
+        const data = {playlistId: id};
+        this.videoStore.loadingChannel = true;
+        this.videoStore.channelVideos = [];
+        await http.get("playlistVideos", {params: data}).subscribe({
+            next: (response: AxiosResponse) => {
+                this.videoStore.channelVideos = response.data;
+                this.videoStore.loadingChannel = false;
+            },
+        })
+    }
 }

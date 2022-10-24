@@ -4,10 +4,11 @@
       VIDEOS DEL CANAL
       <v-spacer/>
       <v-btn
-        color="green"
-        small
-        dark
-        @click="forceChannelYoutubeVideos()"
+          v-if="kind === 'channel'"
+          color="green"
+          small
+          dark
+          @click="forceChannelYoutubeVideos()"
       >
         <v-icon>mdi-refresh</v-icon>
         Recargar lista desde Youtube
@@ -42,20 +43,21 @@ import {VideoService} from "@/services/VideoService";
 })
 export default class VideoChannelList extends Vue {
   @Prop() private id!: string;
+  @Prop() private kind!: string;
   private videoStore = videoStore();
-  private videoService= VideoService.getInstance();
+  private videoService = VideoService.getInstance();
 
   get loading(): boolean {
     return this.videoStore.loadingChannel;
   }
 
   get videos(): Video[] {
-    return this.videoStore.channelVideos.filter((item:Video) => {
+    return this.videoStore.channelVideos.filter((item: Video) => {
       return item.kind === 'video';
     });
   }
 
-  forceChannelYoutubeVideos(){
+  forceChannelYoutubeVideos() {
     this.videoService.forceChannelYoutubeVideos(this.id);
   }
 }

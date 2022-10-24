@@ -8,6 +8,6 @@ export const videoStore = defineStore("videoStore", {
             loadingChannel: false as boolean,
             showDialog: false,
             videos: [] as Video[],
-            channelVideos: [] as Video[]
+            channelVideos: [] as Video[],
         }),
 });
