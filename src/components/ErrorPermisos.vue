@@ -7,9 +7,9 @@
       ¡ No tiene permisos para realizar esta tarea !
     </h1>
 
-    <v-divider></v-divider>
+    <v-divider/>
 
-    <v-btn outlined @click="$router.push({name: 'home'})">
+    <v-btn class="mt-5" outlined @click="$router.push({name: 'home'})">
         Volver
     </v-btn>
   </div>

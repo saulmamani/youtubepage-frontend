@@ -10,23 +10,23 @@ export const http = Axios.create({
     }
 })
 
-// const requestHandler = (request:any) => {
-//     request.headers.Authorization = 'Bearer ' + localStorage.getItem("token_youtubeapp");
-//     return request;
-// };
-//
+const requestHandler = (request:any) => {
+    request.headers.Authorization = `Bearer ${process.env.VUE_APP_API_KEY}`;
+    return request;
+};
+
 const responseHandler = (response:any) => {
     return response;
 };
 
-// const errorHandler = (error:any) => {
-//     return Promise.reject(error);
-// };
+const errorHandler = (error:any) => {
+    return Promise.reject(error);
+};
 
-// http.interceptors.request.use(
-//     async (request:any) => requestHandler(request),
-//     (error:any) => errorHandler(error)
-// );
+http.interceptors.request.use(
+    async (request:any) => requestHandler(request),
+    (error:any) => errorHandler(error)
+);
 
 http.interceptors.response.use(
     (response:any) => responseHandler(response),
@@ -42,21 +42,11 @@ http.interceptors.response.use(
         }
         if (error.response.status !== 1) //error 500, 400, etc
         {
-            await Alert.error(`
+            await Alert.errorTop(`
                             ${error.response.data.message} <br/>
                             ${error.response.data?.error}
                         `);
             await router.push({name: 'error'});
-        }
-
-        if (error.response.status === 422) {
-            const errors = error.response.data.errors;
-            let errosString = "";
-            for (const field of Object.keys(errors)) {
-                errosString += "- " + errors[field][0] + "<br>";
-            }
-
-            await Alert.error(errosString);
         }
     }
 );

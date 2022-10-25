@@ -3,6 +3,7 @@
         <div class="d-flex">
           <v-text-field class="pt-5 mr-2" placeholder="Buscar" outlined clearable
                         v-model="query"
+                        background-color="#FFFFFF"
                         prepend-inner-icon="mdi-magnify"
                         @keypress.enter="listar()"
           />
@@ -85,5 +86,4 @@ export default class HomeView extends Vue {
 </script>
 
 <style scoped>
-
 </style>

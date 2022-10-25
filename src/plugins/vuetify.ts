@@ -10,7 +10,7 @@ const opts = {
     theme: {
         themes: {
             light: {
-                primary: "#154360",
+                primary: "#467398",
                 secondary: colors.grey.darken1,
                 accent: "#333333",
                 error: colors.red.accent3
