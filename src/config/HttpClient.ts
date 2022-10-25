@@ -46,6 +46,7 @@ http.interceptors.response.use(
                             ${error.response.data.message} <br/>
                             ${error.response.data?.error}
                         `);
+            await router.push({name: 'error'});
         }
 
         if (error.response.status === 422) {

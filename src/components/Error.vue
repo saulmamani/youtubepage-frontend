@@ -9,6 +9,10 @@
     Page not found!
 
     <v-divider></v-divider>
+
+    <v-btn outlined @click="$router.push({name: 'home'})">
+        Volver
+    </v-btn>
   </div>
 </template>
 
