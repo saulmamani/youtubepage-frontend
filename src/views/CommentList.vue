@@ -1,7 +1,25 @@
 <template>
 <div>
-  ---
-  <pre>{{comments}}</pre>
+    <div v-if="comments.length <= 0" class="text-center">
+      Sin comentarios
+    </div>
+    <v-list v-else three-line v-for="(comment, index) in comments" :key="index">
+        <v-list-item>
+          <v-list-item-avatar>
+            <v-img :src="comment.authorProfileImageUrl"/>
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title v-html="comment.authorDisplayName" />
+            <v-list-item-subtitle v-html="comment.textDisplay" />
+            <v-list-item-subtitle class="text-right">
+                <v-icon>mdi-thumb-up</v-icon> {{ comment.likeCount }}
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider/>
+    </v-list>
 </div>
 </template>
 
