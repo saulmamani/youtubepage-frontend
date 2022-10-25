@@ -12,14 +12,10 @@
 
     <v-card-text>
       <v-row>
-        <v-col cols="12" lg="7" md="7" sm="12">
-          <v-img
-              :lazy-src="video.image"
-              :src="video.image"
-          >
-          </v-img>
+        <v-col cols="12" lg="7" md="7" sm="12" v-if="video.id !== ''">
+          <iframe width="100%" height="315" :src="`https://www.youtube.com/embed/${video.id}`" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-          <p class="mt-2 text-right" v-if="video.title !== ''">
+          <p class="mt-2 text-right">
             <v-icon>mdi-eye</v-icon>
             {{ video.viewCount }}
             <v-icon>mdi-thumb-up</v-icon>

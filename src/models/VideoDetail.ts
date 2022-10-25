@@ -1,6 +1,6 @@
 export class VideoDetail{
     constructor(
-        public id: string = '0',
+        public id: string = '',
         public kind: string = '',
         public title: string = '',
         public publishedAt: string = '',
