@@ -72,14 +72,14 @@ export default class HomeView extends Vue {
     this.videoService.search(this.query);
   }
 
-  listChannelVideos(kind: string, id: string) {
-    this.channelIdSelect = id;
-    this.kindSelect = kind;
+  listChannelVideos(video:Video) {
+    this.channelIdSelect = video.id;
+    this.kindSelect = video.kind;
     this.videoStore.showDialog = true;
-    if (kind === 'channel') {
-      this.videoService.channelVideos(id);
+    if (video.kind === 'channel') {
+      this.videoService.channelVideos(video.id);
     } else {
-      this.videoService.playlistVideos(id);
+      this.videoService.playlistVideos(video.id);
     }
   }
 }

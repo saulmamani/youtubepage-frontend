@@ -21,14 +21,16 @@
           </v-card>
         </v-col>
         <v-col cols="12" lg="8" md="8" sm="12">
-          <v-card-title
-              class="text-h5"
-              v-text="video.title"
-          />
-          <v-card-subtitle>{{ video.publishedAt | largeDate }}</v-card-subtitle>
-          <v-card-text>
-            {{ video.description }}
-          </v-card-text>
+          <div class="cursor" @click="viewDetail(video)">
+            <v-card-title
+                class="text-h5"
+                v-text="video.title"
+            />
+            <v-card-subtitle>{{ video.publishedAt | largeDate }}</v-card-subtitle>
+            <v-card-text>
+              {{ video.description }}
+            </v-card-text>
+          </div>
           <v-card-actions>
             <v-spacer/>
             <v-btn
@@ -36,7 +38,7 @@
                 color="primary"
                 outlined
                 small
-                @click="listChannelVideos(video.kind, video.id)"
+                @click="listChannelVideos(video)"
             >
               Lista de videos {{ video.kind === 'channel' ? 'del' : 'de la' }} {{ kindSpanish(video.kind) }}
             </v-btn>
@@ -64,12 +66,12 @@ export default class VideoList extends Vue {
   }
 
   @Emit()
-  listChannelVideos(kind: string, id: string) {
-    console.log("emit", kind, id);
+  listChannelVideos(video:Video) {
+    console.log("emit", video);
   }
 
   viewDetail(video: Video) {
-    if (video.kind === 'video'){
+    if (video.kind === 'video') {
       this.$router.push({name: 'detail', params: {id: video.id}})
     }
   }
@@ -81,5 +83,9 @@ export default class VideoList extends Vue {
   color: #ffffff;
   background-color: #000000;
   opacity: 0.7;
+}
+
+.cursor{
+  cursor: pointer;
 }
 </style>
