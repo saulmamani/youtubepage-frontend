@@ -3,6 +3,7 @@
         <div class="d-flex">
           <v-text-field class="pt-5 mr-2" placeholder="Buscar" outlined clearable
                         v-model="query"
+                        prepend-inner-icon="mdi-magnify"
                         @keypress.enter="listar()"
           />
           <v-btn class="mt-5" dark x-large color="primary" @click="listar()" :loading="loading"> BUSCAR</v-btn>
