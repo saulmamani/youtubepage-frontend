@@ -11,17 +11,26 @@
         <span><strong style="color: #ff4000">YouTube</strong> Page</span>
       </v-toolbar-title>
       <v-spacer/>
-
-      <v-btn icon title="Acerca de">
-        <v-icon>mdi-logout</v-icon>
-      </v-btn>
+      <span class="font-weight-thin">Saul Mamani</span>
+      <a title="Acerca de" href="https://saulmamani.github.io" target="_blank">
+        <v-icon>mdi-account</v-icon>
+      </a>
     </v-app-bar>
-    
+
     <v-main>
-      <v-container class="fill-height" fluid grid-list-xl>
+      <v-container class="fill-height" fluid grid-list-xl style="background-color: #f9f9f9">
         <v-layout justify-center wrap>
           <v-flex md12>
-            <router-view :key="$route.fullPath"></router-view>
+
+            <v-row>
+              <v-col
+                  md="8"
+                  offset-md="2"
+              >
+                <router-view :key="$route.fullPath"></router-view>
+              </v-col>
+            </v-row>
+
           </v-flex>
         </v-layout>
       </v-container>

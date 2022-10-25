@@ -4,8 +4,9 @@
     <v-divider></v-divider>
 
     <h1 class="mt-5 mb-5">
-      ¡ Ha ocurido un error inesperado, consulte con el administrador del sistema !
+      404
     </h1>
+    Page not found!
 
     <v-divider></v-divider>
   </div>

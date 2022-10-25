@@ -1,13 +1,15 @@
-export class Video{
+export class VideoDetail{
     constructor(
         public id: string = '0',
         public kind: string = '',
-        public tittle: string = '',
+        public title: string = '',
         public publishedAt: string = '',
         public description: string = '',
-        public imageThumbnail: string = '',
         public image: string = '',
         public channelId: string = '',
+        public viewCount: number = 0,
+        public likeCount: number = 0,
+        public commentCount: number = 0,
     ) {
     }
 }

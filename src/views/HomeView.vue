@@ -1,21 +1,15 @@
 <template>
   <div>
-    <v-row>
-      <v-col
-          md="8"
-          offset-md="2"
-      >
         <div class="d-flex">
           <v-text-field class="pt-5 mr-2" placeholder="Buscar" outlined clearable
                         v-model="query"
                         @keypress.enter="listar()"
           />
-          <v-btn class="mt-5" dark x-large color="primary" outlined @click="listar()" :loading="loading"> BUSCAR</v-btn>
+          <v-btn class="mt-5" dark x-large color="primary" @click="listar()" :loading="loading"> BUSCAR</v-btn>
         </div>
-
         <v-divider/>
 
-        <div v-if="!loading" style="background-color: #f0f0f0" class="pl-2 pr-2 pt-2">
+        <div v-if="!loading" class="pl-2 pr-2 pt-2">
           <video-list
               :videos="videos"
               @list-channel-videos="listChannelVideos"
@@ -30,9 +24,6 @@
           >
           </v-progress-circular>
         </div>
-
-      </v-col>
-    </v-row>
 
     <v-dialog v-model="showDialog" persistent width="800px">
       <video-channel-list

@@ -1,4 +1,4 @@
-# funBARCELONA-frontend
+# Youtube app
 
 ## Project setup
 ```

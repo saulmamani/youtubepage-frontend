@@ -69,8 +69,9 @@ export default class VideoList extends Vue {
   }
 
   viewDetail(video: Video) {
-    if (video.kind === 'video')
+    if (video.kind === 'video'){
       this.$router.push({name: 'detail', params: {id: video.id}})
+    }
   }
 }
 </script>

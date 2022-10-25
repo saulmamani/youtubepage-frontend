@@ -9,6 +9,11 @@ const routes: Array<RouteConfig> = [
         component: () => import('../components/Error.vue'),
     },
     {
+        path: '*',
+        name: 'error',
+        component: () => import('../components/Error.vue'),
+    },
+    {
         path: '/403',
         name: 'error_permisos',
         component: () => import('../components/ErrorPermisos.vue'),
@@ -21,7 +26,7 @@ const routes: Array<RouteConfig> = [
     {
         path: '/detail/:id',
         name: 'detail',
-        component: () => import('../views/VideoDetail.vue'),
+        component: () => import('../views/VideoDetailView.vue'),
     },
 ]
 
