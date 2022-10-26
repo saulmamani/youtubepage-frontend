@@ -41,15 +41,11 @@
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import {globalStore} from "@/store/globalStore";
-import {GlobalService} from "@/services/GlobalService";
 
 @Component({
   name: 'App'
 })
 export default class App extends Vue {
-  globalStore = globalStore();
-  globalService = GlobalService.getInstance();
 }
 </script>
 
